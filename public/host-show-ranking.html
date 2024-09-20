@@ -8,19 +8,35 @@
   </head>
   <body>
     <div class="container" id="request-question">
-        <h1> {{ items.question }}</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">暱稱</th>
+              <th scope="col">分數</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>7962</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>3378</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Bird</td>
+              <td>2253</td>
+            </tr>
+          </tbody>
+        </table>
 
-        <div> {{ items.option1 }} </div>
-        <div> {{ items.option2 }} </div>
-        <div> {{ items.option3 }} </div>
-        <div> {{ items.option4 }} </div>
-
-        <hr>
-        <div> 解答： {{ items.answer }} </div>
-        <div> 背景知識： {{ items.answer }}  </div>
-
-        <form method="GET" action="/host-show-ranking.html">
-            <button class="btn btn-primary"> 看排行 </button>
+        <form method="GET" action="/host.html">
+            <button class="btn btn-primary"> 下一題 </button>
         </form>
     </div>
     
