@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .hidden {
+            display: none; /* This hides the div */
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="enter-name">
+        <h1>輸入你的暱稱</h1>
+        <input type="text" id="nickname">
+        <button class="btn btn-primary" onclick="onEnterName()">就決定是這個名字了</button>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <script>
+        function onEnterName() {
+            // register name
+            const nickname = document.querySelector("#nickname").value;
+            const uid = "fd0f62fd-151e-494a-89dc-0da9a92f00d0"
+            try {
+                axios.get(`https://animated-spoon.dns.army/enter-name?nickname=${nickname}&uid=${uid}`)
+            } catch (err) {
+                console.log("Unable to enter name.", err)
+            }
+            
+            // hide the form
+            const ddiv = document.querySelector("#enter-name")
+            ddiv.classList.add("hidden");
+        }
+    </script>
+  </body>
+</html>
