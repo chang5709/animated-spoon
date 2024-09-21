@@ -24,6 +24,7 @@
         async function onEnterName() {
             // register name
             const nickname = document.querySelector("#nickname").value;
+            if (nickname == "") return;
             let uid = ""
             try {
                 const response = await axios.get(`http://animated-spoon.dns.army:8000/create-uid`)
