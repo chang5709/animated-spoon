@@ -79,3 +79,11 @@ def update_room(room_id: int = 7777):
 
     return {"message": "ok"}
 
+@app.get("/reset-game")
+def reset_game(room_id: int = 7777):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute('UPDATE rooms SET question_id=1 WHERE room_id=?', [room_id])
+    conn.commit()
+
+    return {"message": "ok"}
