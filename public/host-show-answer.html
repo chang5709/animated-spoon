@@ -44,7 +44,7 @@
                     // Your update logic here
                     // update room to prepare the next question
                     try {
-                        const response = await axios.get('http://172.234.87.174/update-room?room_id=7777'); // Replace with your API URL
+                        const response = await axios.get('http://animated-spoon.dns.army:8000/update-room?room_id=7777'); // Replace with your API URL
                         window.location = '/host-show-ranking.html';
                     } catch (err) {
                         error.value = 'Error fetching data: ' + err.message; // Handle error
@@ -61,7 +61,7 @@
 
             const fetchData = async () => {
                 try {
-                    const response = await axios.get('http://172.234.87.174/show-question?room_id=7777'); // Replace with your API URL
+                    const response = await axios.get('http://animated-spoon.dns.army:8000/show-question?room_id=7777'); // Replace with your API URL
                     items.value = response.data; // Bind the fetched data to the items ref
                 } catch (err) {
                     error.value = 'Error fetching data: ' + err.message; // Handle error
