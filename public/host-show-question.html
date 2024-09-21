@@ -8,15 +8,15 @@
   </head>
   <body>
     <div class="container" id="request-question">
-        <h1> 輸入房間號碼 7777 進入遊戲 </h1>
+        <h1> {{ items.question }}</h1>
 
-        <hr>
-        <audio controls loop>
-          <source src="/asset/ES_A Journey With You.mp3">
-        </audio>
+        <div> {{ items.option1 }} </div>
+        <div> {{ items.option2 }} </div>
+        <div> {{ items.option3 }} </div>
+        <div> {{ items.option4 }} </div>
 
-        <form method="GET" action="/host-show-quesetion.html">
-            <button class="btn btn-primary"> 主持遊戲 </button>
+        <form method="GET" action="/host-show-answer.html">
+            <button class="btn btn-primary"> 繼續 </button>
         </form>
     </div>
     
@@ -35,7 +35,7 @@
 
             const fetchData = async () => {
                 try {
-                    const response = await axios.get('http://127.0.0.1/request-question?room_id=1&question_id=1'); // Replace with your API URL
+                    const response = await axios.get('http://127.0.0.1/show-question?room_id=7777'); // Replace with your API URL
                     items.value = response.data; // Bind the fetched data to the items ref
                 } catch (err) {
                     error.value = 'Error fetching data: ' + err.message; // Handle error
