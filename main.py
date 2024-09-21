@@ -7,19 +7,13 @@ from database import get_connection, get_cursor
 
 app = FastAPI()
 
-# Define allowed origins
-origins = [
-    "http://127.0.0.1:8000",  # React app or other frontend
-    "https://example.com",     # Replace with your domain
-]
-
-# Add CORS middleware
+# Allow all CORS origins
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # Allows specified origins
-    allow_credentials=True,  # Allows cookies and authorization headers
-    allow_methods=["*"],     # Allows all methods (GET, POST, etc.)
-    allow_headers=["*"],     # Allows all headers
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all HTTP methods
+    allow_headers=["*"],  # Allows all headers
 )
 
 
