@@ -12,7 +12,7 @@
 - [x] 點開始遊戲
 - 
 - [x] 出題 `/host-show-question.html`
-- [ ] 倒數
+- [x] 倒數
 - [ ] 玩家回答
 - [x] 公布答案 & 公布統計 `/host-show-answer.html`
 - [x] 點下一題
