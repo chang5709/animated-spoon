@@ -21,11 +21,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
     <script>
-        function onEnterName() {
+        async function onEnterName() {
             // register name
             const nickname = document.querySelector("#nickname").value;
-            const uid = "fd0f62fd-151e-494a-89dc-0da9a92f00d0"
+            let uid = ""
             try {
+                const response = await axios.get(`http://animated-spoon.dns.army:8000/create-uid`)
+                uid = response.data
                 axios.get(`http://animated-spoon.dns.army:8000/enter-name?nickname=${nickname}&uid=${uid}`)
             } catch (err) {
                 console.log("Unable to enter name.", err)

@@ -3,6 +3,8 @@ from typing import Union
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+import uuid
+
 from database import get_connection, get_cursor
 
 app = FastAPI()
@@ -78,6 +80,7 @@ def reset_game(room_id: int = 7777):
     conn = get_connection()
     cursor = conn.cursor()
     cursor.execute('UPDATE rooms SET question_id=1 WHERE room_id=?', [room_id])
+    cursor.execute('DELETE FROM players')
     conn.commit()
 
     return {"message": "ok"}
@@ -90,3 +93,7 @@ def enter_name(nickname: str, uid: str, room_id: int = 7777):
     conn.commit()
 
     return {"message": "ok"}
+
+@app.get("/create-uid")
+def create_uid():
+    return uuid.uuid4()
