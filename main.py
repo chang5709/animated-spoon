@@ -53,9 +53,11 @@ def show_question(room_id: int = 7777):
     cursor.execute('SELECT * FROM questions WHERE question_id=?', [question_id])
     q = cursor.fetchone()
 
-    # convert to json
-    result = {"question": q[3], "option1": q[4], "option2": q[5], "option3": q[6], "option4": q[7], "answer": q[8]}
-
+    try:
+        # convert to json
+        result = {"question": q[3], "option1": q[4], "option2": q[5], "option3": q[6], "option4": q[7], "answer": q[8]}
+    except:
+        result = {"question": "遊戲結束", "option1": "", "option2": "", "option3": "", "option4": "", "answer": ""}
     # print(result)
 
     return result
