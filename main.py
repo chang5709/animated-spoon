@@ -97,3 +97,20 @@ def enter_name(nickname: str, uid: str, room_id: int = 7777):
 @app.get("/create-uid")
 def create_uid():
     return uuid.uuid4()
+
+@app.get("/show-player")
+def show_player(room_id: int = 7777):
+    # get players by room id
+    cursor = get_cursor()
+    cursor.execute('SELECT * FROM players WHERE room_id=?', [room_id])
+    rows = cursor.fetchall()
+
+    # to json
+    result = []
+    for row in rows:
+        player = {"nickname": row[1]}
+        result.append(player)
+    
+    # print(rows)
+
+    return result

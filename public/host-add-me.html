@@ -20,6 +20,16 @@
         <form method="GET" action="/host-show-question.html">
             <button class="btn btn-primary"> 主持遊戲 </button>
         </form>
+
+        <hr>
+        <div id="show-player">
+          <ul>
+            <li v-for="(item, index) in items" :key="index">
+                {{ item.nickname }}
+            </li>
+          </ul>
+        </div>
+        
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -31,13 +41,12 @@
       
         createApp({
           setup() {
-            const message = ref('Hello vue!')
             const items = ref([]);
             const error = ref(null); 
 
             const fetchData = async () => {
                 try {
-                    const response = await axios.get('http://animated-spoon.dns.army:8000/request-question?room_id=1&question_id=1'); // Replace with your API URL
+                    const response = await axios.get('http://animated-spoon.dns.army:8000/show-player'); // Replace with your API URL
                     items.value = response.data; // Bind the fetched data to the items ref
                 } catch (err) {
                     error.value = 'Error fetching data: ' + err.message; // Handle error
@@ -46,16 +55,21 @@
 
             // Fetch data when the component is mounted
             onMounted(() => {
-                fetchData();
+              fetchData(); // Fetch immediately on mount
+
+              // Set up interval to fetch data every second
+              const interval = setInterval(fetchData, 1000);
+
+              // Clear the interval when the component is unmounted
+              return () => clearInterval(interval);
             });
 
             return {
-                message,
                 items,
                 error,
             };
           }
-        }).mount('#request-question')
+        }).mount('#show-player')
       </script>
   </body>
 </html>
