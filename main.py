@@ -81,3 +81,12 @@ def reset_game(room_id: int = 7777):
     conn.commit()
 
     return {"message": "ok"}
+
+@app.get("/enter-name")
+def enter_name(nickname: str, uid: str, room_id: int = 7777):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute('INSERT INTO players (nickname, uid, room_id) VALUES (?, ?, ?);', [nickname, uid, room_id])
+    conn.commit()
+
+    return {"message": "ok"}

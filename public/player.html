@@ -26,7 +26,7 @@
             const nickname = document.querySelector("#nickname").value;
             const uid = "fd0f62fd-151e-494a-89dc-0da9a92f00d0"
             try {
-                axios.get(`https://animated-spoon.dns.army/enter-name?nickname=${nickname}&uid=${uid}`)
+                axios.get(`http://animated-spoon.dns.army/enter-name?nickname=${nickname}&uid=${uid}`)
             } catch (err) {
                 console.log("Unable to enter name.", err)
             }
