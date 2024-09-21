@@ -16,10 +16,14 @@
     <div class="container" id="request-question">
         <h1> {{ items.question }}</h1>
 
-        <div> {{ items.option1 }} </div>
-        <div> {{ items.option2 }} </div>
-        <div> {{ items.option3 }} </div>
-        <div> {{ items.option4 }} </div>
+        
+        <div class="d-grid gap-3">
+            <button class="btn btn-success" type="button"> {{items.option1}} </button>
+            <button class="btn btn-danger" type="button"> {{items.option2}} </button>
+            <button class="btn btn-warning" type="button"> {{items.option3}} </button>
+            <button class="btn btn-info" type="button"> {{items.option4}} </button>
+        </div>
+      
 
         <hr>
         <div id="countdown">30</div>
