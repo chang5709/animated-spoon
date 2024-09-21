@@ -19,9 +19,9 @@
         <div> 解答： {{ items.answer }} </div>
         <div> 背景知識： {{ items.answer }}  </div>
 
-        <form method="GET" action="/host-show-ranking.html">
-            <button class="btn btn-primary"> 看排行 </button>
-        </form>
+        
+        <update-room-component></udpate-room-component>
+        
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -30,6 +30,28 @@
 
     <script>
         const { createApp, onMounted, ref } = Vue
+
+        // Define your component
+        const UpdateRoomComponent = {
+            template: `
+                <div>
+                    <button class="btn btn-primary" @click="updateRoom"> 看排行 </button>
+                </div>
+            `,
+            methods: {
+                async updateRoom() {
+                    console.log("Room updated!");
+                    // Your update logic here
+                    // update room to prepare the next question
+                    try {
+                        const response = await axios.get('http://127.0.0.1/update-room?room_id=7777'); // Replace with your API URL
+                        window.location = '/host-show-ranking.html';
+                    } catch (err) {
+                        error.value = 'Error fetching data: ' + err.message; // Handle error
+                    }
+                }
+            }
+        };
       
         createApp({
           setup() {
@@ -46,6 +68,10 @@
                 }
             };
 
+            const updateRoom = async () => {
+                
+            };
+
             // Fetch data when the component is mounted
             onMounted(() => {
                 fetchData();
@@ -56,6 +82,8 @@
                 items,
                 error,
             };
+          }, components: {
+            UpdateRoomComponent
           }
         }).mount('#request-question')
       </script>

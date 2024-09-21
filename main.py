@@ -3,7 +3,7 @@ from typing import Union
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from database import get_cursor
+from database import get_connection, get_cursor
 
 app = FastAPI()
 
@@ -59,3 +59,21 @@ def show_question(room_id: int = 7777):
     # print(result)
 
     return result
+
+@app.get('/update-room')
+def update_room(room_id: int = 7777):
+    '''Update room to prepare next question.'''
+    
+    # get current question id by room id
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute('SELECT question_id FROM rooms WHERE room_id=?', [room_id])
+    question_id = cursor.fetchone()[0]
+
+    # question id + 1
+    next_id = (question_id + 1) if (question_id < 10) else 9999
+    cursor.execute('UPDATE rooms SET question_id=? WHERE room_id=?', [next_id, room_id])
+    conn.commit()
+
+    return {"message": "ok"}
+
