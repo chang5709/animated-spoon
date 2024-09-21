@@ -35,7 +35,7 @@
 
             const fetchData = async () => {
                 try {
-                    const response = await axios.get('http://127.0.0.1/request-question?room_id=1&question_id=1'); // Replace with your API URL
+                    const response = await axios.get('http://172.234.87.174/request-question?room_id=1&question_id=1'); // Replace with your API URL
                     items.value = response.data; // Bind the fetched data to the items ref
                 } catch (err) {
                     error.value = 'Error fetching data: ' + err.message; // Handle error
