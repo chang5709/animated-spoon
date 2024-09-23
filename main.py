@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 import uuid
+import requests
 
 from database import get_connection, get_cursor
 
@@ -112,5 +113,35 @@ def show_player(room_id: int = 7777):
         result.append(player)
     
     # print(rows)
+
+    return result
+
+@app.get("/load-questions")
+def load_questions():
+    '''從 Google 雲端試算表載入題目集。'''
+    sheet_url = 'https://docs.google.com/spreadsheets/d/10l8AbWFsX_8bYitk52V19j4g1hJZmiCJvjhdUXw5348/'
+    sheet_url = sheet_url + 'export?format=csv&gid=0'
+
+    # load google sheets
+    resp = requests.get(sheet_url)
+
+    # to json
+    result = []
+    for line in resp.text.split('\n'):
+        cols = line.split(',')
+        q = {"question_id": cols[0],
+        "category": cols[1],
+        "author": cols[2],
+        "question": cols[3],
+        "option1": cols[4],
+        "option2": cols[5],
+        "option3": cols[6],
+        "option4": cols[7],
+        "answer": cols[8],
+        "desc": cols[9],
+        "status": cols[10],
+        "remark": cols[11]
+        }
+        result.append(q)
 
     return result
