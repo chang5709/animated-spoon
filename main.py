@@ -129,19 +129,7 @@ def load_questions():
     result = []
     for line in resp.text.split('\n'):
         cols = line.split(',')
-        q = {"question_id": cols[0],
-        "category": cols[1],
-        "author": cols[2],
-        "question": cols[3],
-        "option1": cols[4],
-        "option2": cols[5],
-        "option3": cols[6],
-        "option4": cols[7],
-        "answer": cols[8],
-        "desc": cols[9],
-        "status": cols[10],
-        "remark": cols[11]
-        }
+        q = {"question_id": cols[0], "category": cols[1], "author": cols[2], "question": cols[3], "option1": cols[4], "option2": cols[5], "option3": cols[6], "option4": cols[7], "answer": cols[8], "desc": cols[9], "status": cols[10], "remark": cols[11]}
         result.append(q)
 
     return result
