@@ -78,6 +78,7 @@ def update_room(room_id: int = 7777):
 
 @app.get("/reset-game")
 def reset_game(room_id: int = 7777):
+    '''重置房間。'''
     conn = get_connection()
     cursor = conn.cursor()
     cursor.execute('UPDATE rooms SET question_id=1 WHERE room_id=?', [room_id])
@@ -88,6 +89,7 @@ def reset_game(room_id: int = 7777):
 
 @app.get("/enter-name")
 def enter_name(nickname: str, uid: str, room_id: int = 7777):
+    '''輸入暱稱並加入房間。'''
     conn = get_connection()
     cursor = conn.cursor()
     cursor.execute('INSERT INTO players (nickname, uid, room_id) VALUES (?, ?, ?);', [nickname, uid, room_id])
@@ -101,6 +103,7 @@ def create_uid():
 
 @app.get("/show-player")
 def show_player(room_id: int = 7777):
+    '''查詢已加入房間的玩家。'''
     # get players by room id
     cursor = get_cursor()
     cursor.execute('SELECT * FROM players WHERE room_id=?', [room_id])
