@@ -1,0 +1,290 @@
+{
+  "name": "小學堂進行流程",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "77b26847-ad59-4319-b413-a75b0dbbcec3",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        1640,
+        640
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "4001648e-8cf3-4bbb-85f7-cd14336219bb",
+      "name": "等待開始",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1860,
+        640
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "54321023-7cb8-4f1d-a9f6-185acf141b86",
+      "name": "開始",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2080,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "6185d969-94fd-4bca-9297-32ccb66c6857",
+      "name": "每一隊5玩家",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        2300,
+        640
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "781f0fc0-d52d-4e23-a9d5-6fe2abb8f447",
+      "name": "1. 主持人選分類",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2520,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "14e4984f-69f6-4cff-8064-d92b40f49ca6",
+      "name": "2. 每玩家回答5題",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        2760,
+        840
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "c6bf45bc-b497-4ed3-857b-819e98b1679b",
+      "name": "3. 主持人抽獎",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3560,
+        820
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "354db3b2-add6-4305-a890-53d1feaa909e",
+      "name": "2a. 系統出題",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2960,
+        1140
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "41032a16-ece2-405e-bcbf-db6ddd23d5e7",
+      "name": "2b. 玩家答題",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3160,
+        1140
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "92e172ca-1843-4fff-8f2b-399c99ad1dcb",
+      "name": "2c. 系統解答",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3360,
+        1140
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "63cecf57-009b-41be-917f-343d33319d67",
+      "name": "結算隊伍成績",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3800,
+        620
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "a73a1cde-58dc-4b94-aad7-80767133727e",
+      "name": "Bonus 環節",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        4040,
+        620
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "等待開始",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "等待開始": {
+      "main": [
+        [
+          {
+            "node": "開始",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "開始": {
+      "main": [
+        [
+          {
+            "node": "每一隊5玩家",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "每一隊5玩家": {
+      "main": [
+        [
+          {
+            "node": "結算隊伍成績",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "1. 主持人選分類",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "1. 主持人選分類": {
+      "main": [
+        [
+          {
+            "node": "2. 每玩家回答5題",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "2. 每玩家回答5題": {
+      "main": [
+        [
+          {
+            "node": "3. 主持人抽獎",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "2a. 系統出題",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "2a. 系統出題": {
+      "main": [
+        [
+          {
+            "node": "2b. 玩家答題",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "2b. 玩家答題": {
+      "main": [
+        [
+          {
+            "node": "2c. 系統解答",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "2c. 系統解答": {
+      "main": [
+        [
+          {
+            "node": "2. 每玩家回答5題",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "3. 主持人抽獎": {
+      "main": [
+        [
+          {
+            "node": "每一隊5玩家",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "結算隊伍成績": {
+      "main": [
+        [
+          {
+            "node": "Bonus 環節",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "077c22bb-bd22-4ec7-93f6-bd485dba619e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d2cf43ff35a330c2cb868a5ab5c8518f1264af0b64925d95e0a90283944381cc"
+  },
+  "id": "YyqQyxVGYt4WiER3",
+  "tags": []
+}
