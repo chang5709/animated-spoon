@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 Edg/127.0.0.0" version="24.7.17">
   <diagram name="第 1 页" id="qsuVyvbhFHqotlB28iIr">
-    <mxGraphModel dx="1351" dy="746" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="996" dy="549" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -50,7 +50,7 @@
         <mxCell id="m-NyeYcFWqAB6fJ0VtxW-38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="m-NyeYcFWqAB6fJ0VtxW-10" target="m-NyeYcFWqAB6fJ0VtxW-37" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="m-NyeYcFWqAB6fJ0VtxW-10" value="Bonus 環節" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+        <mxCell id="m-NyeYcFWqAB6fJ0VtxW-10" value="工商時間" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="1200" y="230" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="m-NyeYcFWqAB6fJ0VtxW-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="m-NyeYcFWqAB6fJ0VtxW-12" target="m-NyeYcFWqAB6fJ0VtxW-16" edge="1">
@@ -120,7 +120,10 @@
         <mxCell id="m-NyeYcFWqAB6fJ0VtxW-29" value="結算當下成績" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="1600" y="450" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="m-NyeYcFWqAB6fJ0VtxW-37" value="結束" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+        <mxCell id="qkZWodTD9YwXXFbHhhg--16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="m-NyeYcFWqAB6fJ0VtxW-37" target="qkZWodTD9YwXXFbHhhg--15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m-NyeYcFWqAB6fJ0VtxW-37" value="花絮" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="1400" y="230" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="qkZWodTD9YwXXFbHhhg--3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qkZWodTD9YwXXFbHhhg--1" target="m-NyeYcFWqAB6fJ0VtxW-1">
@@ -146,6 +149,12 @@
         </mxCell>
         <mxCell id="qkZWodTD9YwXXFbHhhg--8" value="公布答題統計" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="1600" y="650" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qkZWodTD9YwXXFbHhhg--11" value="ES_The Return Journey.mp3" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="870" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qkZWodTD9YwXXFbHhhg--15" value="結束" style="ellipse;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1620" y="220" width="80" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
