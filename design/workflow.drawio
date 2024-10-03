@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0" version="24.7.17">
   <diagram name="第 1 页" id="qsuVyvbhFHqotlB28iIr">
-    <mxGraphModel dx="1650" dy="523" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1823" dy="633" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -314,6 +314,21 @@
         </mxCell>
         <mxCell id="WOPA3h9E8CvAgLq2pJQE-78" value="&lt;div style=&quot;text-align: start;&quot;&gt;&lt;font face=&quot;Roboto, Helvetica Neue, sans-serif&quot; color=&quot;#041e49&quot;&gt;&lt;span style=&quot;font-size: 28px; background-color: rgb(255, 255, 255);&quot;&gt;前導劇情影片&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WOPA3h9E8CvAgLq2pJQE-72">
           <mxGeometry x="40" y="80" width="720" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="WOPA3h9E8CvAgLq2pJQE-81" value="ES_Memory.mp3" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="354" y="450" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="WOPA3h9E8CvAgLq2pJQE-82" value="ES_What Might Have Been.mp3" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="550" y="450" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="WOPA3h9E8CvAgLq2pJQE-83" value="ES_What Might Have Been.mp3" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="980" y="650" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="WOPA3h9E8CvAgLq2pJQE-84" value="ES_Memory.mp3" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="40" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="WOPA3h9E8CvAgLq2pJQE-85" value="ES_This Day Will Be Remembered.mp3" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="40" width="120" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
