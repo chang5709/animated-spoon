@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+      body {
+        background-color: #ECDFCC;
+      }
+      .logo-container {
+          display: flex;
+          flex-wrap: wrap; /* Allows items to wrap to the next line if needed */
+      }
+      .item {
+          flex: 1 1 25%; /* Grow and shrink, with a base size of 25% */
+          box-sizing: border-box; /* Include padding and border in the element's total width and height */
+          padding: 20px; /* Add some padding for spacing */
+          background-color: #ECDFCC; /* Background color for visibility */
+          text-align: center; /* Center the text */
+      }
+
+      .card {
+        width: 160px;
+        height: 160px;
+      }
+
+      .btn-category {
+        width: 160px;
+        height: 160px;
+        font-size: 24px;
+      }
+
+      .btn-desc {
+        width: 825px;
+        height: 160px;
+        font-size: 24px;
+      }
+
+      .btn-meta {
+        width: 160px;
+        height: 60px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="opacity: 0.2;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">隱藏選單</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/show-intro.html">前導劇情</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/show-waiting.html">等待開始</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/show-login.html">註冊進入</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/show-demo.html">示範題組</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/show-category.html">選擇分類</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/show-question.html">隨機出題</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/show-barchart.html">公布統計</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/show-explain.html">主持人解析</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/show-minigame.html">抽獎時間</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/show-overall.html">結算當下成績</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/show-overall.html">全隊總成績</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/show-event.html">工商時間</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/show-outro.html">花絮</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="logo-container">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"><img src="/asset/logo.png" alt="logo" width="150" height="150"></div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-2">
+          <button class="btn btn-warning btn-meta">示範題組</button>
+        </div>
+        <div class="col-2">
+          <button class="btn btn-warning btn-meta">第 1 題</button>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+          <button class="btn btn-warning btn-desc">請問小學堂大亂鬥最初是由哪一個團隊發起的？</button>
+        </div>
+        <div class="col-2"></div>
+      </div>
+      <br><br>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-2">
+          <button class="btn btn-success btn-category">音樂圈</button>
+        </div>
+        <div class="col-2">
+          <button class="btn btn-secondary btn-category">工程圈</button>
+        </div>
+        <div class="col-2">
+          <button class="btn btn-primary btn-category">醫療圈</button>
+        </div>
+        <div class="col-2">
+          <button class="btn btn-danger btn-category">教育圈</button>
+        </div>
+        <div class="col-2"></div>
+      </div>
+      <br><br>
+      <div class="row" style="opacity: 0.15;">
+        <div class="col-7"><iframe width="100%" height="500" src="https://www.youtube.com/embed/-RXsvAlh_oo?si=fKh2_AKJ9o_Ih4Qp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <div class="col-5">
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
