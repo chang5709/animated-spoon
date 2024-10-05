@@ -20,6 +20,24 @@
           background-color: #ECDFCC; /* Background color for visibility */
           text-align: center; /* Center the text */
       }
+
+      .playingcard {
+        width: 300px;
+        height: 400px;
+        font-size: 48px;
+      }
+
+      .playingcard-desc {
+        width: 100%;
+        height: 200px;
+        font-size: 32px;
+      }
+
+      .playingcard-history {
+        width: 100px;
+        height: 100px;
+        font-size: 20px;
+      }
     </style>
   </head>
   <body>
@@ -35,10 +53,10 @@
               <a class="nav-link" aria-current="page" href="/show-intro.html">前導劇情</a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="/show-waiting.html">等待開始</a>
+              <a class="nav-link active" href="/show-waiting.html">等待開始</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="/show-login.html">註冊進入</a>
+              <a class="nav-link" href="/show-login.html">註冊進入</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/show-demo.html">示範題組</a>
@@ -78,13 +96,46 @@
       <div class="item"></div>
       <div class="item"></div>
       <div class="item"></div>
-      <div class="item"><img src="/asset/logo.png" alt="logo" width="200" height="200"></div>
+      <div class="item"><img src="/asset/logo.png" alt="logo" width="150" height="150"></div>
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-7"></div>
+        <div class="col-4">
+          <button class="btn btn-warning playingcard">撲克牌<br>方塊12</button>
+        </div>
+        <div class="col-8">
+          <div class="row">
+            <div class="col-12">
+              <button class="btn btn-warning playingcard-desc">陳姓張姓同學因超速收到罰單<br>有該姓氏的每一人扣1800</button>
+            </div>
+          </div>
+          <br><br>
+          <div class="row">
+            <div class="col-2">
+              <button class="btn btn-warning playingcard-history">方塊12</button>
+            </div>
+            <div class="col-2">
+              <button class="btn btn-warning playingcard-history">--</button>
+            </div>
+            <div class="col-2">
+              <button class="btn btn-warning playingcard-history">--</button>
+            </div>
+            <div class="col-2">
+              <button class="btn btn-warning playingcard-history">--</button>
+            </div>
+            <div class="col-2">
+              <button class="btn btn-warning playingcard-history">--</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><br>
+      <div class="row" style="opacity: 0.2;">
+        <div class="col-7">
+          <video src="/asset/a-delightful-evening.mp4" controls autoplay loop></video>
+        </div>
         <div class="col-5">
-          
+          <img src="/asset/qrcode-login.png" alt="login">
         </div>
       </div>
       
