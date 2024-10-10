@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/10.14.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/10.14.0/firebase-auth-compat.js"></script>
+    <!-- <script defer src="/__/firebase/10.14.0/firebase-database-compat.js"></script> -->
+    <!-- <script defer src="/__/firebase/10.14.0/firebase-firestore-compat.js"></script> -->
+    <!-- <script defer src="/__/firebase/10.14.0/firebase-functions-compat.js"></script> -->
+    <!-- <script defer src="/__/firebase/10.14.0/firebase-messaging-compat.js"></script> -->
+    <!-- <script defer src="/__/firebase/10.14.0/firebase-storage-compat.js"></script> -->
+    <!-- <script defer src="/__/firebase/10.14.0/firebase-analytics-compat.js"></script> -->
+    <!-- <script defer src="/__/firebase/10.14.0/firebase-remote-config-compat.js"></script> -->
+    <!-- <script defer src="/__/firebase/10.14.0/firebase-performance-compat.js"></script> -->
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <style>
+      body {
+        background-color: #ECDFCC;
+      }
+
+      .logo {
+        width: 120px;
+        height: 120px;
+      }
+
+      .btn-desc {
+        font-size: 1.25em;
+        background-color: #FF8A8A;
+        width: 100%;
+      }
+
+      .btn-option1 {
+        font-size: 1.25em;
+        background-color: #FF76CE;
+        width: 100%;
+      }
+
+      .btn-option2 {
+        font-size: 1.25em;
+        background-color: #FDFFC2;
+        width: 100%;
+      }
+
+      .btn-option3 {
+        font-size: 1.25em;
+        background-color: #94FFD8;
+        width: 100%;
+      }
+
+      .btn-option4 {
+        font-size: 1.25em;
+        background-color: #A3D8FF;
+        width: 100%;
+      }
+
+      .btn-send {
+        font-size: 1.25em;
+        background-color: #ffc107;;
+        width: 100%;
+      }
+
+      .title2 {
+        font-size: 1.5em;
+      }
+
+      .enter {
+        font-size: 1.25em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <br><br>
+      <div class="row">
+        <div class="col-8"></div>
+        <div class="col-4">
+          <img src="/asset/logo.png" alt="logo" class="logo">
+        </div>
+      </div>
+      <br><br>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10"><button class="btn btn-desc">請問小學堂大亂鬥最初是由哪一個團隊發起的？</button></div>
+        <div class="col-1"></div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10"><button class="btn btn-option1">音樂圈</button></div>
+        <div class="col-1"></div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10"><button class="btn btn-option2">工程圈</button></div>
+        <div class="col-1"></div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10"><button class="btn btn-option3">醫療圈</button></div>
+        <div class="col-1"></div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10"><button class="btn btn-option4">教育圈</button></div>
+        <div class="col-1"></div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10"><button class="btn btn-send">送出</button></div>
+        <div class="col-1"></div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        
+
+        // Listen for Authentication State Changes
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            // User is signed in.
+            
+          } else {
+            // No user is signed in.
+            window.location = '/player-login.html'
+          }
+        }); 
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
