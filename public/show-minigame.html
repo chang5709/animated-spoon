@@ -141,5 +141,79 @@
       
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+      // Function to pick a random item and remove it from the array
+      function pickAndRemoveRandomItem(arr) {
+          if (arr.length === 0) {
+              return null; // Return null if the array is empty
+          }
+          const randomIndex = Math.floor(Math.random() * arr.length); // Get a random index
+          const item = arr[randomIndex]; // Get the item at the random index
+          arr.splice(randomIndex, 1); // Remove the item from the array
+          return item; // Return the removed item
+      }
+
+      function mapping(num) {
+        index = String(num);
+        result = {
+          '0': ['梅花1', '分數+7000'],
+          '1': ['梅花2', '分數+7000'],
+          '2': ['梅花3', '分數+7000'],
+          '3': ['梅花4', '分數+7000'],
+          '4': ['梅花5', '分數+7000'],
+          '5': ['梅花6', '分數歸0'],
+          '6': ['梅花7', '分數歸0'],
+          '7': ['梅花8', '分數開根號'],
+          '8': ['梅花9', '分數開根號'],
+          '9': ['梅花10', '分數+5000'],
+          '10': ['梅花11', '分數+5000'],
+          '11': ['梅花12', '分數+5000'],
+          '12': ['梅花13', '分數+5000'],
+          '13': ['方塊1', '神偷卡，看抽到哪個隊伍就偷他們3000分'],
+          '14': ['方塊2', '神偷卡，看抽到哪個隊伍就偷他們3000分'],
+          '15': ['方塊3', '神偷卡，看抽到哪個隊伍就偷他們3000分'],
+          '16': ['方塊4', '神偷卡，看抽到哪個隊伍就偷他們3000分'],
+          '17': ['方塊5', '神偷卡，看抽到哪個隊伍就偷他們3000分'],
+          '18': ['方塊6', '全隊讚美主持人，主持人開心就給5000分，不開心扣分'],
+          '19': ['方塊7', '全隊讚美主持人，主持人開心就給5000分，不開心扣分'],
+          '20': ['方塊8', '分數乘以2'],
+          '21': ['方塊9', '分數乘以2'],
+          '22': ['方塊10', '跟主持人玩黑白切，贏則分數2.5倍，輸則分數0.2倍'],
+          '23': ['方塊11', '跟主持人玩黑白切，贏則分數2.5倍，輸則分數0.2倍'],
+          '24': ['方塊12', '陳姓張姓同學因超速收到罰單，有該姓氏的每一人扣1800'],
+          '25': ['方塊13', '林姓黃姓同學亂嗆路人，路人爆氣打人，自己受傷扣1800醫藥費'],
+          '26': ['愛心1', '分數+5000'],
+          '27': ['愛心2', '分數+5000'],
+          '28': ['愛心3', '分數+5000'],
+          '29': ['愛心4', '分數+5000'],
+          '30': ['愛心5', '分數+5000'],
+          '31': ['愛心6', '分數+5000'],
+          '32': ['愛心7', '請抽到的隊友講，老子有錢隔壁的奶酪我請你們吃。右邊隊伍有幾個人就乘以500'],
+          '33': ['愛心8', '分數+20000'],
+          '34': ['愛心9', '分數+20000'],
+          '35': ['愛心10', '分數+7000'],
+          '36': ['愛心11', '分數+7000'],
+          '37': ['愛心12', '分數+7000'],
+          '38': ['愛心13', '分數+7000'],
+        }
+
+        return result[index]
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        // 可以抽得牌有哪些
+        let available = []
+        for (let i=0; i<52; i++) {
+          available.push(i);
+        }
+        // console.log(available);
+
+        // 隨機選一張牌，並且從可以抽得牌裡面移除
+        const pickedNumber = pickAndRemoveRandomItem(available);
+        console.log(`Picked number: ${pickedNumber}`);
+        console.log(`Updated array: ${available}`);
+      });
+      
+    </script>
   </body>
 </html>
