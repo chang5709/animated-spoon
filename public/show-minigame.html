@@ -130,13 +130,11 @@
         </div>
       </div>
       <br><br>
-      <div class="row" style="opacity: 0.2;">
+      <div class="row" style="opacity: 0.1;">
         <div class="col-7">
           <video src="/asset/a-delightful-evening.mp4" controls autoplay loop></video>
         </div>
-        <div class="col-5">
-          <img src="/asset/qrcode-login.png" alt="login">
-        </div>
+        <div class="col-5"></div>
       </div>
       
     </div>
@@ -214,16 +212,26 @@
       }
 
       function pick() {
-        const pickedNumber = pickAndRemoveRandomItem(available);
-        const result = mapping(pickedNumber);
-
         const card_num = document.querySelector('.card-num');
         const card_desc = document.querySelector('.card-desc');
 
-        card_num.innerHTML = result[0];
-        card_desc.innerHTML = result[1];
+        if (front) { // 正面翻背面
+          front = false;
 
-        console.log(available)
+          card_num.innerHTML = '抽撲克牌';
+          card_desc.innerHTML = '--';
+
+        } else { // 背面翻正面
+          front = true;
+
+          const pickedNumber = pickAndRemoveRandomItem(available);
+          const result = mapping(pickedNumber);
+
+          card_num.innerHTML = result[0];
+          card_desc.innerHTML = result[1];
+
+          // console.log(available)
+        }
       }
 
       document.addEventListener('DOMContentLoaded', function() {
@@ -233,6 +241,9 @@
           available.push(i);
         }
         // console.log(available);
+
+        // 正面背面
+        front = false;
       });
       
     </script>
