@@ -71,7 +71,7 @@
       <div class="row">
         <div class="col-4"></div>
         <div class="col-6">
-          <button class="btn btn-warning enter">馬上挑戰</button>
+          <button class="btn btn-warning enter" id='google-signin-button'>馬上挑戰</button>
         </div>
         <div class="col-2"></div>
       </div>
@@ -123,10 +123,10 @@
         firebase.auth().onAuthStateChanged((user) => {
           if (user) {
             // User is signed in.
-            console.log(user);
+            window.location = '/player-joystick.html'
           } else {
             // No user is signed in.
-            console.log('No user is signed in.');
+            
           }
         }); 
       });
