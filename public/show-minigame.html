@@ -21,13 +21,13 @@
           text-align: center; /* Center the text */
       }
 
-      .playingcard {
+      .card-num {
         width: 300px;
         height: 400px;
         font-size: 48px;
       }
 
-      .playingcard-desc {
+      .card-desc {
         width: 100%;
         height: 200px;
         font-size: 32px;
@@ -101,18 +101,18 @@
     <div class="container">
       <div class="row">
         <div class="col-4">
-          <button class="btn btn-warning playingcard">撲克牌<br>方塊12</button>
+          <button class="btn btn-warning card-num" onclick="pick()">抽撲克牌</button>
         </div>
         <div class="col-8">
           <div class="row">
             <div class="col-12">
-              <button class="btn btn-warning playingcard-desc">陳姓張姓同學因超速收到罰單<br>有該姓氏的每一人扣1800</button>
+              <button class="btn btn-warning card-desc">--</button>
             </div>
           </div>
           <br><br>
           <div class="row">
             <div class="col-2">
-              <button class="btn btn-warning playingcard-history">方塊12</button>
+              <button class="btn btn-warning playingcard-history">--</button>
             </div>
             <div class="col-2">
               <button class="btn btn-warning playingcard-history">--</button>
@@ -213,18 +213,26 @@
         return result[index]
       }
 
+      function pick() {
+        const pickedNumber = pickAndRemoveRandomItem(available);
+        const result = mapping(pickedNumber);
+
+        const card_num = document.querySelector('.card-num');
+        const card_desc = document.querySelector('.card-desc');
+
+        card_num.innerHTML = result[0];
+        card_desc.innerHTML = result[1];
+
+        console.log(available)
+      }
+
       document.addEventListener('DOMContentLoaded', function() {
         // 可以抽得牌有哪些
-        let available = []
+        available = []
         for (let i=0; i<52; i++) {
           available.push(i);
         }
         // console.log(available);
-
-        // 隨機選一張牌，並且從可以抽得牌裡面移除
-        const pickedNumber = pickAndRemoveRandomItem(available);
-        console.log(`Picked number: ${pickedNumber}`);
-        console.log(`Updated array: ${available}`);
       });
       
     </script>
