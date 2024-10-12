@@ -11,7 +11,7 @@
     <!-- include only the Firebase features as you need -->
     <script defer src="/__/firebase/10.14.0/firebase-auth-compat.js"></script>
     <!-- <script defer src="/__/firebase/10.14.0/firebase-database-compat.js"></script> -->
-    <!-- <script defer src="/__/firebase/10.14.0/firebase-firestore-compat.js"></script> -->
+    <script defer src="/__/firebase/10.14.0/firebase-firestore-compat.js"></script>
     <!-- <script defer src="/__/firebase/10.14.0/firebase-functions-compat.js"></script> -->
     <!-- <script defer src="/__/firebase/10.14.0/firebase-messaging-compat.js"></script> -->
     <!-- <script defer src="/__/firebase/10.14.0/firebase-storage-compat.js"></script> -->
@@ -36,7 +36,16 @@
 
       .btn-meta {
         font-size: 1em;
-        background-color: #ffc107;
+        width: 100%;
+      }
+
+      .btn-category {
+        font-size: 1em;
+        width: 100%;
+      }
+
+      .btn-questionid {
+        font-size: 1em;
         width: 100%;
       }
 
@@ -92,8 +101,8 @@
         <div class="col-8">
           <div class="row">
             <div class="col-1"></div>
-            <div class="col-5"><button class="btn btn-meta disabled">冷知識</button></div>
-            <div class="col-5"><button class="btn btn-meta disabled">第5題</button></div>
+            <div class="col-5"><button class="btn btn-category disabled">載入中</button></div>
+            <div class="col-5"><button class="btn btn-questionid disabled">載入中</button></div>
           </div>
           <br>
           <div class="row">
@@ -109,37 +118,37 @@
       <br><br>
       <div class="row">
         <div class="col-1"></div>
-        <div class="col-10"><button class="btn btn-desc">請問小學堂大亂鬥最初是由哪一個團隊發起的？</button></div>
+        <div class="col-10"><button class="btn btn-desc">載入中</button></div>
         <div class="col-1"></div>
       </div>
       <hr>
       <div class="row">
         <div class="col-1"></div>
-        <div class="col-10"><button class="btn btn-option1">音樂圈</button></div>
+        <div class="col-10"><button class="btn btn-option1">載入中</button></div>
         <div class="col-1"></div>
       </div>
       <br>
       <div class="row">
         <div class="col-1"></div>
-        <div class="col-10"><button class="btn btn-option2">工程圈</button></div>
+        <div class="col-10"><button class="btn btn-option2">載入中</button></div>
         <div class="col-1"></div>
       </div>
       <br>
       <div class="row">
         <div class="col-1"></div>
-        <div class="col-10"><button class="btn btn-option3">醫療圈</button></div>
+        <div class="col-10"><button class="btn btn-option3">載入中</button></div>
         <div class="col-1"></div>
       </div>
       <br>
       <div class="row">
         <div class="col-1"></div>
-        <div class="col-10"><button class="btn btn-option4">教育圈</button></div>
+        <div class="col-10"><button class="btn btn-option4">載入中</button></div>
         <div class="col-1"></div>
       </div>
       <hr>
       <div class="row">
         <div class="col-1"></div>
-        <div class="col-10"><button class="btn btn-send">送出</button></div>
+        <div class="col-10"><button class="btn btn-send">鎖定答案</button></div>
         <div class="col-1"></div>
       </div>
     </div>
@@ -151,7 +160,27 @@
         // // The Firebase SDK is initialized and available here!
         //
         // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        firebase.firestore().collection("show-question-display").doc("4Y8hbxjcALNxgn7KE8qm")
+          .onSnapshot((doc) => {
+            // 要更新的元件
+            const btnDesc = document.querySelector('.btn-desc')
+            const btnOption1 = document.querySelector('.btn-option1')
+            const btnOption2 = document.querySelector('.btn-option2')
+            const btnOption3 = document.querySelector('.btn-option3')
+            const btnOption4 = document.querySelector('.btn-option4')
+            const btnCategory = document.querySelector('.btn-category')
+            const btnQuestionid = document.querySelector('.btn-questionid')
+
+            // 綁定
+            console.log("Current data: ", doc.data());
+            btnDesc.innerHTML = doc.data()['desc']
+            btnOption1.innerHTML = doc.data()['option1']
+            btnOption2.innerHTML = doc.data()['option2']
+            btnOption3.innerHTML = doc.data()['option3']
+            btnOption4.innerHTML = doc.data()['option4']
+            btnCategory.innerHTML = doc.data()['category']
+            btnQuestionid.innerHTML = doc.data()['questionid']
+          });
         // firebase.functions().httpsCallable('yourFunction')().then(() => { });
         // firebase.messaging().requestPermission().then(() => { });
         // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
