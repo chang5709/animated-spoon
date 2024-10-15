@@ -6,10 +6,10 @@ function updateUI() {
           .onSnapshot((doc) => {
             // 要更新的元件
             const btnDesc = document.querySelector('.btn-desc')
-            const btnOption1 = document.querySelector('.btn-option1')
-            const btnOption2 = document.querySelector('.btn-option2')
-            const btnOption3 = document.querySelector('.btn-option3')
-            const btnOption4 = document.querySelector('.btn-option4')
+            const btnOption1 = document.querySelector('.radio-option1')
+            const btnOption2 = document.querySelector('.radio-option2')
+            const btnOption3 = document.querySelector('.radio-option3')
+            const btnOption4 = document.querySelector('.radio-option4')
             const btnCategory = document.querySelector('.btn-category')
             const btnQuestionid = document.querySelector('.btn-questionid')
 
