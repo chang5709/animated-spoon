@@ -54,6 +54,11 @@ function setQuestion() {
  * 主持人選分類
  */
 function setCategory(category) {
+    // 動畫提示正在運行
+    const spinner = document.querySelector('#spinner')
+    spinner.classList.remove('hidden');
+
+    // 設定分類
     const ref = firebase.firestore().collection('show-category-display').doc('A89mIhkZn1Re2aIhRRDe')
     ref.update({'current_category': category, 'current_number': 1})
     .then(() => {
