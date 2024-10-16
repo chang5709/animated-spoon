@@ -24,3 +24,25 @@ function updateUI() {
             btnQuestionid.innerHTML = doc.data()['questionid']
           });
 }
+
+/**
+ * 鎖定答案
+ */
+function saveAnswer() {
+  // 元件
+  const btnOption1 = document.querySelector('.radio-option1')
+  const btnOption2 = document.querySelector('.radio-option2')
+  const btnOption3 = document.querySelector('.radio-option3')
+  const btnOption4 = document.querySelector('.radio-option4')
+  const btnSend = document.querySelector('.btn-send')
+
+  // disabled
+  btnOption1.classList.add('disabled')
+  btnOption2.classList.add('disabled')
+  btnOption3.classList.add('disabled')
+  btnOption4.classList.add('disabled')
+  btnSend.classList.add('disabled')
+
+  // change text
+  btnSend.innerHTML = '答案已鎖定'
+}
