@@ -43,6 +43,20 @@ function saveAnswer() {
   btnOption4.classList.add('disabled')
   btnSend.classList.add('disabled')
 
+  // form
+  const part1 = document.querySelector('.btn-category').innerHTML
+  const part2 = document.querySelector('.btn-questionid').innerHTML
+  const part3 = document.querySelector('input[name="options-outlined"]:checked').value
+  const uid = document.querySelector('#uid').innerHTML
+
+  // submit form
+  firebase.firestore().collection("player-answer-display").add({
+      reply: part1 + part2 + part3,
+      user: uid,
+  })
+  .then((docRef) => { console.log("成功: ", docRef.id); })
+  .catch((error) => { console.error("失敗: ", error); });
+
   // change text
   btnSend.innerHTML = '答案已鎖定'
 }

@@ -96,7 +96,7 @@
       <div class="row">
         <div class="col-1"></div>
         <div class="col-10">
-          <input type="radio" class="btn-check" name="options-outlined" id="option1" autocomplete="off">
+          <input type="radio" class="btn-check" name="options-outlined" id="option1" autocomplete="off" value="A">
           <label class="btn btn-outline-success radio-option radio-option1" for="option1">載入中</label>
         </div>
         <div class="col-1"></div>
@@ -105,7 +105,7 @@
       <div class="row">
         <div class="col-1"></div>
         <div class="col-10">
-          <input type="radio" class="btn-check" name="options-outlined" id="option2" autocomplete="off">
+          <input type="radio" class="btn-check" name="options-outlined" id="option2" autocomplete="off" value="B">
           <label class="btn btn-outline-warning radio-option radio-option2" for="option2">載入中</label>
         </div>
         <div class="col-1"></div>
@@ -114,7 +114,7 @@
       <div class="row">
         <div class="col-1"></div>
         <div class="col-10">
-          <input type="radio" class="btn-check" name="options-outlined" id="option3" autocomplete="off">
+          <input type="radio" class="btn-check" name="options-outlined" id="option3" autocomplete="off" value="C">
           <label class="btn btn-outline-primary radio-option radio-option3" for="option3">載入中</label>
         </div>
         <div class="col-1"></div>
@@ -123,14 +123,16 @@
       <div class="row">
         <div class="col-1"></div>
         <div class="col-10">
-          <input type="radio" class="btn-check" name="options-outlined" id="option4" autocomplete="off">
+          <input type="radio" class="btn-check" name="options-outlined" id="option4" autocomplete="off" value="D">
           <label class="btn btn-outline-danger radio-option radio-option4" for="option4">載入中</label>
         </div>
         <div class="col-1"></div>
       </div>
       <hr>
       <div class="row">
-        <div class="col-1"></div>
+        <div class="col-1">
+          <button class="btn d-none" id="uid"></button>
+        </div>
         <div class="col-10"><button class="btn btn-light btn-send" onclick="saveAnswer()">鎖定答案</button></div>
         <div class="col-1"></div>
       </div>
@@ -162,7 +164,8 @@
         firebase.auth().onAuthStateChanged((user) => {
           if (user) {
             // User is signed in.
-            
+            const btnUid = document.querySelector('#uid')
+            btnUid.innerHTML = user.uid
           } else {
             // No user is signed in.
             window.location = '/player-login.html'
