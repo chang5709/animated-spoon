@@ -30,6 +30,11 @@
     border-color: #FF8A8A;
 }
 
+.btn-next {
+    width: 100%;
+    font-size: 1.25em;
+}
+
 .btn-success {
     --bs-btn-color: #fff;
     --bs-btn-bg: #de6c83;
