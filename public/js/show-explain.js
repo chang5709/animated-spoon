@@ -6,6 +6,7 @@ function updateUI() {
           .onSnapshot((doc) => {
             // 要更新的元件
             const btnDesc = document.querySelector('.btn-desc')
+            const btnExplain = document.querySelector('.btn-explain')
             const btnOption1 = document.querySelector('.radio-option1')
             const btnOption2 = document.querySelector('.radio-option2')
             const btnOption3 = document.querySelector('.radio-option3')
@@ -16,6 +17,7 @@ function updateUI() {
             // 綁定
             console.log("Current data: ", doc.data());
             btnDesc.innerHTML = doc.data()['desc']
+            btnExplain.innerHTML = doc.data()['explain']
             btnOption1.innerHTML = doc.data()['option1']
             btnOption2.innerHTML = doc.data()['option2']
             btnOption3.innerHTML = doc.data()['option3']
@@ -45,5 +47,25 @@ function updateUI() {
 
             firebase.firestore().collection("player-answer-display").where("reply", "==", reply4)
             .onSnapshot((querySnapshot) => { chartOption4.innerHTML = querySnapshot.size });
+
+            // 反白答案
+            if (doc.data()['answer'] == 'A') {
+              btnOption1.classList.remove('btn-outline-dark')
+              btnOption1.classList.add('btn-success')
+
+            } else if (doc.data()['answer'] == 'B') {
+              btnOption2.classList.remove('btn-outline-dark')
+              btnOption2.classList.add('btn-warning')
+
+            } else if (doc.data()['answer'] == 'C') {
+              btnOption3.classList.remove('btn-outline-dark')
+              btnOption3.classList.add('btn-primary')
+
+            } else if (doc.data()['answer'] == 'D') {
+              btnOption4.classList.remove('btn-outline-dark')
+              btnOption4.classList.add('btn-danger')
+            } else {
+              console.error('反白答案時錯誤')
+            }
           });
 }
