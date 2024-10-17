@@ -69,6 +69,9 @@ function updateUI() {
             } else {
               console.error('反白答案時錯誤')
             }
+
+            // 更新答對題數
+            updateCorrectCount()
           });
 }
 
@@ -146,9 +149,25 @@ function nextQuestion() {
  * 更新答對題數
  */
 function updateCorrectCount() {
+  // 正確解答是什麼
   const part1 = document.querySelector('.btn-category').innerHTML
   const part2 = document.querySelector('.btn-questionid').innerHTML
   const part3 = document.querySelector('.btn-answer').innerHTML
   const correctCode = part1 + part2 + part3
+
+  // 有誰答對
+  firebase.firestore().collection("player-answer-display").where("reply", "==", correctCode)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        // 寫入資料庫
+        firebase.firestore().collection("question").add({'user': doc.data()['user'], 'reply': correctCode})
+        .then(() => { console.log('更新成功') })
+        .catch((error) => { console.error('更新失敗') });
+    });
+    })
+    .catch((error) => { console.error('更新答對題數錯誤', error) });
+
+  // 寫入資料庫
   console.log(correctCode)
 }
