@@ -54,9 +54,49 @@ function saveAnswer() {
       reply: part1 + part2 + part3,
       user: uid,
   })
-  .then((docRef) => { console.log("成功: ", docRef.id); })
-  .catch((error) => { console.error("失敗: ", error); });
+  .then((docRef) => { console.log("成功送出解答: ", docRef.id); })
+  .catch((error) => { console.error("失敗送出解答: ", error); });
+
+  firebase.firestore().collection("player-lock-down").add({
+      user: uid,
+  })
+  .then((docRef) => { console.log("成功鎖定解答: ", docRef.id); })
+  .catch((error) => { console.error("失敗鎖定解答: ", error); });
 
   // change text
   btnSend.innerHTML = '答案已鎖定'
+}
+
+/**
+ * 判斷是否可以作答
+ */
+function updateLockdown() {
+  // 元件
+  const btnOption1 = document.querySelector('.radio-option1')
+  const btnOption2 = document.querySelector('.radio-option2')
+  const btnOption3 = document.querySelector('.radio-option3')
+  const btnOption4 = document.querySelector('.radio-option4')
+  const btnSend = document.querySelector('.btn-send')
+  const uid = document.querySelector('#uid').innerHTML
+
+  // 綁定
+  firebase.firestore().collection("player-lock-down").where("user", "==", uid)
+    .onSnapshot((querySnapshot) => {
+        // console.log(querySnapshot.size)
+        if (querySnapshot.size) {
+          // disabled
+          btnOption1.classList.add('disabled')
+          btnOption2.classList.add('disabled')
+          btnOption3.classList.add('disabled')
+          btnOption4.classList.add('disabled')
+          btnSend.classList.add('disabled')
+        } else {
+          // remove disabled
+          btnOption1.classList.remove('disabled')
+          btnOption2.classList.remove('disabled')
+          btnOption3.classList.remove('disabled')
+          btnOption4.classList.remove('disabled')
+          btnSend.classList.remove('disabled')
+        }
+    });
 }

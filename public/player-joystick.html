@@ -166,6 +166,9 @@
             // User is signed in.
             const btnUid = document.querySelector('#uid')
             btnUid.innerHTML = user.uid
+
+            // 是否可以作答
+            updateLockdown()
           } else {
             // No user is signed in.
             window.location = '/player-login.html'
