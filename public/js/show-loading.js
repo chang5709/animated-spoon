@@ -37,7 +37,7 @@ function updateCache() {
           .then(() => {
               console.log('設定快取成功')
               // redirect
-              window.location = '/show-question.html'
+              window.location = '/show-barchart.html'
           })
           .catch((error) => {
               console.error('設定快取失敗', error)
