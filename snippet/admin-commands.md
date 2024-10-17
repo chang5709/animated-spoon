@@ -3,7 +3,7 @@
 ### 一般操作
 1. 開放作答 (清空鎖定狀態)
 ```
-firebase firestore:delete /player-lock-down --recursive
+firebase firestore:delete -f /player-lock-down --recursive
 ```
 
 ### 危險區域
