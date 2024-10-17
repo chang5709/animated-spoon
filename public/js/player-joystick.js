@@ -90,6 +90,7 @@ function updateLockdown() {
           btnOption3.classList.add('disabled')
           btnOption4.classList.add('disabled')
           btnSend.classList.add('disabled')
+          btnSend.innerHTML = '答案已鎖定'
         } else {
           // remove disabled
           btnOption1.classList.remove('disabled')
@@ -97,6 +98,12 @@ function updateLockdown() {
           btnOption3.classList.remove('disabled')
           btnOption4.classList.remove('disabled')
           btnSend.classList.remove('disabled')
+          btnSend.innerHTML = '鎖定答案'
+          // 清除已選選項
+          const btns = document.querySelectorAll('input[name="options-outlined"]')
+          for (const btn of btns) {
+            btn.checked = false
+          }
         }
     });
 }
