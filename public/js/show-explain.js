@@ -13,6 +13,7 @@ function updateUI() {
             const btnOption4 = document.querySelector('.radio-option4')
             const btnCategory = document.querySelector('.btn-category')
             const btnQuestionid = document.querySelector('.btn-questionid')
+            const btnAnswer = document.querySelector('.btn-answer')
 
             // 綁定
             console.log("Current data: ", doc.data());
@@ -24,6 +25,7 @@ function updateUI() {
             btnOption4.innerHTML = doc.data()['option4']
             btnCategory.innerHTML = doc.data()['category']
             btnQuestionid.innerHTML = doc.data()['questionid']
+            btnAnswer.innerHTML = doc.data()['answer']
 
             // 統計元件
             const chartOption1 = document.querySelector('.chart-option1')
@@ -119,6 +121,9 @@ function updateCache() {
   })
 }
 
+/**
+ * 同一個分類，下一題
+ */
 function nextQuestion() {
   const btnQuestionid = document.querySelector('.btn-questionid')
   const questionid = parseInt(btnQuestionid.innerHTML)
@@ -135,4 +140,15 @@ function nextQuestion() {
     })
     .catch((error) => { console.error("Error updating document: ", error); })
   }
+}
+
+/**
+ * 更新答對題數
+ */
+function updateCorrectCount() {
+  const part1 = document.querySelector('.btn-category').innerHTML
+  const part2 = document.querySelector('.btn-questionid').innerHTML
+  const part3 = document.querySelector('.btn-answer').innerHTML
+  const correctCode = part1 + part2 + part3
+  console.log(correctCode)
 }
