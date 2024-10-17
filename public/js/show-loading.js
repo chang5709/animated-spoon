@@ -60,3 +60,13 @@ function showSpinner() {
   const spinner = document.querySelector('#spinner')
   spinner.classList.remove('hidden');
 }
+
+/**
+ * 解除鎖定作答
+ */
+function truncatePlayerLockDown() {
+    const endpoint = 'https://us-central1-animated-spoon.cloudfunctions.net/truncatePlayerLockDown';
+    axios.get(endpoint)
+    .then(() => {console.log('解除鎖定成功')})
+    .catch((error) => {console.error('解除鎖定失敗', error)})
+}
