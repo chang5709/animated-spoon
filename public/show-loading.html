@@ -23,7 +23,7 @@
       to avoid connecting the SDK to running emulators.
     -->
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
+    
     <style>
       body {
         background-color: #ECDFCC;
@@ -45,13 +45,14 @@
         height: 160px;
       }
 
-      .btn-category {
+      .btn-meta {
         width: 160px;
-        height: 160px;
-        font-size: 24px;
+        height: 60px;
+        font-size: 20px;
+        background-color: #FF8A8A;
       }
     </style>
-    <link rel="stylesheet" href="/css/show-category.css">
+    <link rel="stylesheet" href="/css/show-loading.css">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary" style="opacity: 0.2;">
@@ -69,7 +70,7 @@
               <a class="nav-link" href="/show-waiting.html">等待開始</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="/show-category.html">選擇分類</a>
+              <a class="nav-link" href="/show-category.html">選擇分類</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/show-question.html">系統出題</a>
@@ -78,7 +79,7 @@
               <a class="nav-link" href="/show-barchart.html">公布統計</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/show-explain.html">主持人解析</a>
+              <a class="nav-link active" href="/show-explain.html">主持人解析</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/show-minigame.html">抽獎時間</a>
@@ -96,79 +97,57 @@
         </div>
       </div>
     </nav>
-    
     <div class="container">
-      <br><br>
       <div class="row">
-        <div class="col-1"></div>
-        <div class="col-2">
-          <button class="btn btn-warning btn-category" onclick="setCategory('示範')">示範🚀</button>
-        </div>
-        <div class="col-2">
-          <button class="btn btn-warning btn-category" onclick="setCategory('科技')">科技🤖</button>
-        </div>
-        <div class="col-2">
-          <button class="btn btn-warning btn-category" onclick="setCategory('文字')">文字🖋️</button>
-        </div>
-        <div class="col-2">
-          <button class="btn btn-warning btn-category" onclick="setCategory('冷笑話')">冷笑話🔥</button>
-        </div>
-        <div class="col-2">
-          <button class="btn btn-warning btn-category" onclick="setCategory('化學')">化學🧪</button>
-        </div>
+        <div class="col-10"></div>
+        <div class="col-2"><img src="/asset/logo.png" alt="logo" width="150" height="150"></div>
       </div>
-      <br><br>
+    </div>
+    <div class="container hidden" id="spinner">
       <div class="row">
-        <div class="col-1"></div>
-        <div class="col-2">
-          <button class="btn btn-warning btn-category" onclick="setCategory('動漫')">動漫🎮</button>
+        <div class="col-2"></div>
+        <div class="d-flex justify-content-center">
+          <div class="spinner-grow text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <div class="spinner-grow text-secondary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <div class="spinner-grow text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <div class="spinner-grow text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <div class="spinner-grow text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <div class="spinner-grow text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <div class="spinner-grow text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <div class="spinner-grow text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
         </div>
-        <div class="col-2">
-          <button class="btn btn-warning btn-category" onclick="setCategory('生物')">生物🐦</button>
+        <div class="col-8">
+          
         </div>
-        <div class="col-2">
-          <button class="btn btn-warning btn-category" onclick="setCategory('時事')">時事📻</button>
-        </div>
-        <div class="col-2">
-          <button class="btn btn-warning btn-category" onclick="setCategory('營養')">營養🍖</button>
-        </div>
-        <div class="col-2">
-          <button class="btn btn-warning btn-category" onclick="setCategory('植物')">植物🥦</button>
-        </div>
-      </div>
-      <br><br>
-      <div class="row">
-        <div class="col-1"></div>
-        <div class="col-2">
-          <button class="btn btn-warning btn-category" onclick="setCategory('文學')">文學📖</button>
-        </div>
-        <div class="col-2">
-          <button class="btn btn-warning btn-category" onclick="setCategory('運動')">運動🏀</button>
-        </div>
-        <div class="col-2">
-          <button class="btn btn-warning btn-category" onclick="setCategory('地科')">地科🌎</button>
-        </div>
-        <div class="col-2">
-          <button class="btn btn-warning btn-category" onclick="setCategory('常識')">常識👓</button>
-        </div>
-        <div class="col-2">
-          <button class="btn btn-warning btn-category" onclick="setCategory('冷知識')">冷知識⛽</button>
-        </div>
-      </div>
-      <br><br>
-      <div class="row" style="opacity: 0.15;">
-        <div class="col-7">
-          <video src="/asset/what-might-have-been.mp4" controls autoplay loop></video>
-        </div>
-        <div class="col-5">
-        </div>
+        <div class="col-2"></div>
       </div>
       
     </div>
-
+    <script src="/js/show-loading.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const loadEl = document.querySelector('#load');
+
+        // 更新題目快取
+        updateCache();
+
         // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
         // // The Firebase SDK is initialized and available here!
         //
@@ -196,7 +175,5 @@
         }); 
       });
     </script>
-    <script src="/js/show-category.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>

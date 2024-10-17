@@ -47,7 +47,7 @@
         // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
         // // The Firebase SDK is initialized and available here!
         //
-        firebase.auth().onAuthStateChanged(user => { });
+        // firebase.auth().onAuthStateChanged(user => { });
         // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
         // firebase.firestore().doc('/foo/bar').get().then(() => { });
         // firebase.functions().httpsCallable('yourFunction')().then(() => { });
@@ -88,9 +88,11 @@
           if (user) {
             // User is signed in.
             console.log(user);
+            window.location = '/player-joystick.html'
           } else {
             // No user is signed in.
             console.log('No user is signed in.');
+            window.location = '/player-login.html'
           }
         }); 
       });
