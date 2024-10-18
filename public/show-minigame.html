@@ -87,7 +87,7 @@
     <div class="container">
       <div class="row">
         <div class="col-4">
-          <button class="btn btn-warning card-num" onclick="pick()">抽撲克牌</button>
+          <button class="btn btn-warning card-num" onclick="pick()"></button>
         </div>
         <div class="col-8">
           <div class="row">
@@ -186,8 +186,9 @@
         if (front) { // 正面翻背面
           front = false;
 
-          card_num.innerHTML = '抽撲克牌';
-          // card_desc.innerHTML = '--';
+          card_num.style.backgroundImage = `url('/asset/playing-cards/back.png')`;
+          card_num.style.backgroundSize = 'cover';
+          
 
         } else { // 背面翻正面
           front = true;
@@ -195,7 +196,9 @@
           const pickedNumber = pickAndRemoveRandomItem(available);
           const result = mapping(pickedNumber);
 
-          card_num.innerHTML = result[0];
+          // card_num.innerHTML = result[0];
+          card_num.style.backgroundImage = `url('/asset/playing-cards/${pickedNumber}.png')`;
+          card_num.style.backgroundSize = 'cover';
           card_desc.innerHTML += '🔖 ' + result[0] + '：' + result[1] + '<br>';
 
           // console.log(available)
@@ -215,6 +218,9 @@
 
         // 正面背面
         front = false;
+        const card_num = document.querySelector('.card-num')
+        card_num.style.backgroundImage = `url('/asset/playing-cards/back.png')`;
+        card_num.style.backgroundSize = 'cover';
       });
       
     </script>
