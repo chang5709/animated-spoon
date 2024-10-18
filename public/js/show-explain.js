@@ -132,7 +132,7 @@ function nextQuestion() {
   const questionid = parseInt(btnQuestionid.innerHTML)
 
   if (questionid == 5) {
-    window.location = '/show-category.html'
+    window.location = '/show-minigame.html'
   } else {
     // 設定分類
     const ref = firebase.firestore().collection('show-category-display').doc('A89mIhkZn1Re2aIhRRDe')
