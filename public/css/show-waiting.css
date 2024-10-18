@@ -1,0 +1,20 @@
+.instructions {
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+@keyframes fade {
+    0% {
+      opacity: 0.25; /* Start fully transparent */
+    }
+    50% {
+      opacity: 1; /* Fully opaque */
+    }
+    100% {
+      opacity: 0.25; /* Fade back to transparent */
+    }
+}
+  
+.fade-in-out {
+    animation: fade 3s ease-in-out infinite; /* Apply the animation, looping indefinitely */
+}
