@@ -39,3 +39,9 @@ firebase deploy --only functions
 ```
 firebase firestore:delete -f /player-lock-down --recursive
 ```
+
+### 危險區域
+1. 清空玩家作答 (活動開始前)
+```
+firebase firestore:delete /player-answer-display --recursive
+```
