@@ -56,11 +56,29 @@ function truncatePlayerCorrectAnswer() {
 }
 
 /**
+ * 清除玩家答案
+ */
+function truncatePlayerAnswerDisplay() {
+    const endpoint = 'https://us-central1-animated-spoon.cloudfunctions.net/truncatePlayerAnswerDisplay';
+    axios.get(endpoint)
+}
+
+/**
+ * 清除答對題數標記
+ */
+function truncateAlreadyChecked() {
+    const endpoint = 'https://us-central1-animated-spoon.cloudfunctions.net/truncateAlreadyChecked';
+    axios.get(endpoint)
+}
+
+/**
  * 主持人選分類
  */
 function setCategory(category) {
-    // 清除答對題數
-    truncatePlayerCorrectAnswer()
+    // 狀態重置
+    truncatePlayerAnswerDisplay() // 清除玩家答案
+    truncatePlayerCorrectAnswer() // 清除答對題數
+    truncateAlreadyChecked() // 清除答對題數標記
 
     // 設定分類
     const ref = firebase.firestore().collection('show-category-display').doc('A89mIhkZn1Re2aIhRRDe')
