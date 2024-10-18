@@ -79,7 +79,7 @@
           <div class="row">
             <div class="col-1"></div>
             <div class="col-5"><button class="btn btn-meta disabled">第一隊</button></div>
-            <div class="col-5"><button class="btn btn-meta disabled">對3題</button></div>
+            <div class="col-5"><button class="btn btn-correct disabled">🔥0</button></div>
           </div>
         </div>
         <div class="col-4">
@@ -169,6 +169,9 @@
 
             // 是否可以作答
             updateLockdown()
+
+            // 更新答題數
+            updateCorrectUI(user.uid)
           } else {
             // No user is signed in.
             window.location = '/player-login.html'

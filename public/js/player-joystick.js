@@ -26,6 +26,17 @@ function updateUI() {
 }
 
 /**
+ * 更新答對題數
+ */
+function updateCorrectUI(useruid) {
+  const btnCorrect = document.querySelector('.btn-correct')
+  firebase.firestore().collection('player-correct-answer').where('user', '==', useruid)
+  .onSnapshot((querySnapshot) => {
+    btnCorrect.innerHTML = '🔥' + querySnapshot.size
+  })
+}
+
+/**
  * 鎖定答案
  */
 function saveAnswer() {
