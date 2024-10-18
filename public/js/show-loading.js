@@ -67,6 +67,4 @@ function showSpinner() {
 function truncatePlayerLockDown() {
     const endpoint = 'https://us-central1-animated-spoon.cloudfunctions.net/truncatePlayerLockDown';
     axios.get(endpoint)
-    .then(() => {console.log('解除鎖定成功')})
-    .catch((error) => {console.error('解除鎖定失敗', error)})
 }

@@ -48,9 +48,19 @@ function updateCache() {
 }
 
 /**
+ * 清除答對題數
+ */
+function truncatePlayerCorrectAnswer() {
+    const endpoint = 'https://us-central1-animated-spoon.cloudfunctions.net/truncatePlayerCorrectAnswer';
+    axios.get(endpoint)
+}
+
+/**
  * 主持人選分類
  */
 function setCategory(category) {
+    // 清除答對題數
+    truncatePlayerCorrectAnswer()
 
     // 設定分類
     const ref = firebase.firestore().collection('show-category-display').doc('A89mIhkZn1Re2aIhRRDe')
