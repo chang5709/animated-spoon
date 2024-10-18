@@ -155,19 +155,37 @@ function updateCorrectCount() {
   const part3 = document.querySelector('.btn-answer').innerHTML
   const correctCode = part1 + part2 + part3
 
-  // 有誰答對
-  firebase.firestore().collection("player-answer-display").where("reply", "==", correctCode)
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        // 寫入資料庫
-        firebase.firestore().collection("question").add({'user': doc.data()['user'], 'reply': correctCode})
-        .then(() => { console.log('更新成功') })
-        .catch((error) => { console.error('更新失敗') });
-    });
-    })
-    .catch((error) => { console.error('更新答對題數錯誤', error) });
+  // 是否已經更新過
+  firebase.firestore().collection('already-checked').doc(correctCode)
+  .get()
+  .then((doc) => {
+    if (doc.exists) {
+      // 已經更新過
+      console.log(correctCode + ' 已經更新過')
+    } else {
+      // 尚未更新過
 
-  // 寫入資料庫
-  console.log(correctCode)
+      // 有誰答對
+      firebase.firestore().collection("player-answer-display").where("reply", "==", correctCode)
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          // 寫入資料庫
+          firebase.firestore().collection("player-correct-answer").add({'user': doc.data()['user'], 'reply': correctCode})
+          .then(() => { console.log('更新成功') })
+          .catch((error) => { console.error('更新失敗') });
+      });
+      })
+      .catch((error) => { console.error('更新答對題數錯誤', error) });
+
+      // 更新完做標記
+      firebase.firestore().collection('already-checked').doc(correctCode)
+      .set({'reply': correctCode})
+      .then(() => { console.log('標記成功') })
+      .catch((error) => { console.error('標記失敗', error) })
+    }
+  })
+  .catch((error) => {
+    console.error('更新答對題數錯誤', error)
+  })
 }
