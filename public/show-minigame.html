@@ -29,7 +29,7 @@
 
       .card-desc {
         width: 100%;
-        height: 200px;
+        height: 400px;
         font-size: 32px;
       }
 
@@ -93,24 +93,6 @@
           <div class="row">
             <div class="col-12">
               <button class="btn btn-warning card-desc">--</button>
-            </div>
-          </div>
-          <br><br>
-          <div class="row">
-            <div class="col-2">
-              <button class="btn btn-warning playingcard-history">--</button>
-            </div>
-            <div class="col-2">
-              <button class="btn btn-warning playingcard-history">--</button>
-            </div>
-            <div class="col-2">
-              <button class="btn btn-warning playingcard-history">--</button>
-            </div>
-            <div class="col-2">
-              <button class="btn btn-warning playingcard-history">--</button>
-            </div>
-            <div class="col-2">
-              <button class="btn btn-warning playingcard-history">--</button>
             </div>
           </div>
         </div>
@@ -205,7 +187,7 @@
           front = false;
 
           card_num.innerHTML = '抽撲克牌';
-          card_desc.innerHTML = '--';
+          // card_desc.innerHTML = '--';
 
         } else { // 背面翻正面
           front = true;
@@ -214,13 +196,16 @@
           const result = mapping(pickedNumber);
 
           card_num.innerHTML = result[0];
-          card_desc.innerHTML = result[1];
+          card_desc.innerHTML += '🔖 ' + result[0] + '：' + result[1] + '<br>';
 
           // console.log(available)
         }
       }
 
       document.addEventListener('DOMContentLoaded', function() {
+        // initialize message
+        document.querySelector('.card-desc').innerHTML = '';
+
         // 可以抽得牌有哪些
         available = []
         for (let i=0; i<52; i++) {

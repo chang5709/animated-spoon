@@ -2,3 +2,11 @@ body {
     background-image: url('/asset/card-background.png');
     background-size: cover;
 }
+
+.card-num {
+    opacity: 0.9;
+}
+
+.card-desc {
+    opacity: 0.9;
+}
