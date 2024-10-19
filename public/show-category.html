@@ -127,14 +127,20 @@
           <button class="btn btn-warning btn-category" onclick="setCategory('科技')">科技🤖</button>
         </div>
         <div class="col-2">
-          <button class="btn btn-warning btn-category" onclick="setCategory('生物')">生物🐦</button>
+          <button class="btn btn-warning btn-category" onclick="setCategory('時事')">時事📻</button>
+          
         </div>
       </div>
       <br><br>
       <div class="row">
         <div class="col-1"></div>
         <div class="col-2">
-          <button class="btn btn-warning btn-category" onclick="setCategory('地科')">地科🌎</button>
+          <button class="btn btn-secondary btn-category position-relative disabled" onclick="setCategory('地科')">
+            地科🌎
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              即將推出
+            </span>
+          </button>
         </div>
         <div class="col-2">
           <button class="btn btn-secondary btn-category position-relative disabled" onclick="setCategory('運動')">
@@ -161,7 +167,12 @@
           </button>
         </div>
         <div class="col-2">
-          <button class="btn btn-warning btn-category" onclick="setCategory('時事')">時事📻</button>
+          <button class="btn btn-secondary btn-category position-relative disabled" onclick="setCategory('生物')">
+            生物🐦
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              即將推出
+            </span>
+          </button>
         </div>
       </div>
       <br><br>
